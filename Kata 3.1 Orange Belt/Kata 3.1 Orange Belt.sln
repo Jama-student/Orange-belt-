@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kata 3.1 Orange Belt", "Kata 3.1 Orange Belt\Kata 3.1 Orange Belt.csproj", "{B1E7C98A-F8C1-45D1-B371-E5D9E1F91466}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B1E7C98A-F8C1-45D1-B371-E5D9E1F91466}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1E7C98A-F8C1-45D1-B371-E5D9E1F91466}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1E7C98A-F8C1-45D1-B371-E5D9E1F91466}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1E7C98A-F8C1-45D1-B371-E5D9E1F91466}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C672D5E1-648F-4964-8E3B-22AC1D0E1C78}
+	EndGlobalSection
+EndGlobal
