@@ -26,10 +26,10 @@ class Character
     public string Name { get; set; }
     public int Health { get; set; }
 
-    // Declare a delegate to represent character actions
+
     public delegate void CharacterAction();
 
-    // Declare an event to notify when health changes
+    
     public event EventHandler HealthChanged;
 
     public Character(string name, int health)
@@ -38,22 +38,22 @@ class Character
         Health = health;
     }
 
-    // Attack method to reduce health of a target character
+    
     public void Attack(Character target)
     {
         Console.WriteLine($"{Name} attacks {target.Name}");
 
-        // Reduce target's health
+        
         target.Health -= 20;
 
-        // Trigger the HealthChanged event
+        
         OnHealthChanged(target);
     }
 
-    // Method to trigger the HealthChanged event
+    
     protected virtual void OnHealthChanged(Character target)
     {
-        // If there are subscribers, trigger the event
+        
         HealthChanged?.Invoke(this, EventArgs.Empty);
     }
 }
