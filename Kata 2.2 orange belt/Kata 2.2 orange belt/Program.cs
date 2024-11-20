@@ -6,18 +6,18 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Create two characters
+    
         Character warrior = new Character("Warrior", 100);
         Character goblin = new Character("Goblin", 50);
 
-        // Subscribe to the HealthChanged event
+        
         warrior.HealthChanged += (sender, e) => Console.WriteLine($"{warrior.Name}'s health is now {warrior.Health}");
         goblin.HealthChanged += (sender, e) => Console.WriteLine($"{goblin.Name}'s health is now {goblin.Health}");
 
-        // Perform an attack
-        warrior.Attack(goblin);  // Warrior attacks Goblin
+        
+        warrior.Attack(goblin);  
 
-        // Output: Warrior attacks Goblin and Goblin's health should be updated
+        
     }
 }
 
