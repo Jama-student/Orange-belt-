@@ -1,4 +1,4 @@
-﻿namespace Level_1_Striped_Yellow_Belt;
+namespace Level_1_Striped_Yellow_Belt;
 
 using System;
 
@@ -6,44 +6,51 @@ class Program
 {
     static void Main(string[] args)
     {
-        
-        Character warrior = new Character("Warrior", 40);
-        Character healer = new Character("Healer", 60);
+        Character warrior = new Character("Warrior", 100);
+        Character healer = new Character("Healer", 80);
 
-        
-        warrior.PrimaryAction = () => Console.WriteLine("Warrior attacks the enemy!");
-        healer.PrimaryAction = () => Console.WriteLine("Healer casts Heal!");
-
-        
-
-        if (warrior.Health < 50)
+        warrior.HealthChanged += (sender, e) =>
         {
-            warrior.PrimaryAction.Invoke();
-        }
+            Console.WriteLine($"{((Character)sender).Name}'s health is now {((Character)sender).Health}");
+        };
 
-        
-        if (healer.Health < 50)
+        healer.HealthChanged += (sender, e) =>
         {
-            healer.PrimaryAction.Invoke();
-        }
-        else
-        {
-            
-            healer.PrimaryAction = () => Console.WriteLine("Healer heals Warrior!");
-            healer.PrimaryAction.Invoke();
-        }
+            Console.WriteLine($"{((Character)sender).Name}'s health is now {((Character)sender).Health}");
+        };
+
+        warrior.Attack(healer);
+        healer.Attack(warrior);
     }
 }
 
 class Character
 {
     public string Name { get; set; }
-    public int Health { get; set; }
-    public Action PrimaryAction { get; set; }
+    private int health;
+    public int Health
+    {
+        get => health;
+        set
+        {
+            health = value;
+            HealthChanged?.Invoke(this, EventArgs.Empty);
+        }
+    }
 
-    public Character(string name, int health)
+    public delegate void CharacterAction(Character target);
+
+    public event EventHandler HealthChanged;
+
+    public Character(string name, int initialHealth)
     {
         Name = name;
-        Health = health;
+        Health = initialHealth;
+    }
+
+    public void Attack(Character target)
+    {
+        Console.WriteLine($"{Name} attacks {target.Name}!");
+        target.Health -= 10;
     }
 }
